@@ -4,7 +4,8 @@ jobs:
     machine: 
       image: ubuntu-2004:current 
     steps: 
-      - checkout 
+      - checkout
+      - run: make lint
       - run: make deps 
       - run: make test1       
 workflows: 
