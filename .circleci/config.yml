@@ -3,12 +3,14 @@ jobs:
   build-and-test:  
     machine: 
       image: ubuntu-2004:current 
+      docker_layer_cashing: true
     steps: 
       - checkout
       - run: make deps
       - run: make test1
       - run: make lint
       - run: make docker_build
+      - run: make docker_push
 workflows: 
   basic:  
     jobs: 
